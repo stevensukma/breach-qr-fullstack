@@ -31,7 +31,7 @@ class App extends Component {
   componentDidMount() {
     var socketHost = 'http://localhost:5000';
     if (process.env.NODE_ENV === "production") {
-      socketHost = 'http://localhost:' + process.env.PORT;
+      socketHost = 'https://breach-qr-fullstack.herokuapp.com/';
     }
     const socket = openSocket(socketHost);
 
