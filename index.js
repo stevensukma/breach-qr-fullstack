@@ -20,7 +20,7 @@ socket.on('connection', function(socket){
 
 require('./routes/qrRoutes')(app, redis, socket);
 
-if (process.env.ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
 
     const path = require('path');
