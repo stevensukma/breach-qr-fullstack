@@ -29,12 +29,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    var socket;
+    var socketHost = 'http://localhost:5000';
     if (process.env.NODE_ENV === "production") {
-      socket = openSocket();
-    } else {
-      socket = openSocket('http://localhost:5000');
+      socketHost = 'http://localhost:' + process.env.PORT;
     }
+    const socket = openSocket(socketHost);
 
     socket.on('UPDATE_TOKEN', () => {
       this.updateToken();
