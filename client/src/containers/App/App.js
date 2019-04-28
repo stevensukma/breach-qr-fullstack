@@ -31,7 +31,7 @@ class App extends Component {
   componentDidMount() {
     let socketHost = 'http://localhost:5000';
     if (process.env.ENV === "production") {
-      socketHost = process.env.HOST + process.env.PORT;
+      socketHost = process.env.WEBSOCKET_HOST;
     }
     const socket = openSocket(socketHost);
     socket.on('UPDATE_TOKEN', () => {
